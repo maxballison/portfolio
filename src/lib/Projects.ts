@@ -10,7 +10,7 @@ const projects = [
 		title: 'Notes on Love',
 		technologies: ['Svelte', 'python', 'p5js', 'gpt4'],
 		description:
-			"Notes on Love is an appliation meant to categorize Harvard/MIT students' perspectives on Love. It uses a database of hundreds of love letters that a small team collected. I run each letter through an algorithm that uses gpt4 give the letter values for originality and positivity, and place the letter on a graph",
+			"Notes on Love is an application meant to categorize Harvard/MIT students' perspectives on Love. It uses a database of hundreds of love letters that a small team collected. I run each letter through an algorithm that uses gpt4 give the letter values for originality and positivity, and place the letter on a graph",
 		url: 'https://maxballison.github.io/love-notes/'
 	},
 	{
@@ -18,7 +18,14 @@ const projects = [
 		technologies: ['C++', 'OpenGL'],
 		description: "A three-dimensional cellular automata simulation using OpenGL",
 		url: 'https://github.com/maxballison/CS175Final'
-	}
+	},
+	// {
+	// 	title: 'Chippy',
+	// 	technologies: ['Arduino', 'Cirucuits', 'Ableton'],
+	// 	description:
+	// 		"Chippy is a synthesizer and wave generator meant to replicate the sounds of retro gaming consoles.",
+	// 	url: ''
+	// }
 ];
 
 export default projects;

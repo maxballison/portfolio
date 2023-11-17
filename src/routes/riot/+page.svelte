@@ -19,48 +19,72 @@
 
     .text-section, .image-section {
         flex: 1;
+        padding: 20px;
     }
 
     img {
         max-width: 100%;
         height: auto;
     }
+
+
+    a {
+        color: #FFFFFF; /* Replace with your desired color */
+        text-decoration: underline; /* Removes the underline from links */
+    }
+
+    a:hover {
+        color: #F11111; /* Color when the mouse hovers over the link */
+        text-decoration: none; /* Adds underline on hover for better UX */
+    }
 </style>
 
 <main>
-    <h1>Application to Riot Games</h1>
+    <h1>Riot Games</h1>
     
     <!-- Project 1 -->
     <section class="container">
         <div class="text-section">
-            <h2>Project 1: Gaming Community Platform</h2>
-            <p><strong>Project brief:</strong> Developed a platform to connect gamers, focusing on improving user engagement and providing a seamless gaming experience. This project aligned with Riot's strategy of fostering gaming communities.</p>
-            <p><strong>The team and your role:</strong> Collaborated with developers, designers, and product managers. My role was lead developer, focusing on back-end integration and user experience optimization.</p>
-            <p><strong>Brief intro to your customers and their needs:</strong> Our primary customers were avid gamers looking for a comprehensive community experience. They needed a platform that was both user-friendly and feature-rich.</p>
-            <p><strong>Your approach to the problem space:</strong> Utilized Agile methodologies, prioritizing user feedback and iterative design. Key decisions included adopting a microservices architecture and focusing on mobile responsiveness.</p>
-            <p><strong>Example(s) of iteration based on feedback:</strong> One surprising feedback was the demand for real-time game updates. This led us to integrate live streaming features, significantly enhancing user engagement.</p>
-            <p><strong>Constraints or obstacles:</strong> A major constraint was ensuring high performance during peak traffic, which we addressed through scalable cloud solutions.</p>
-            <p><strong>Reflections:</strong> In hindsight, investing more in early user testing would have accelerated feature refinement.</p>
+            <h2>Project 1: Dao</h2>
+            <p><strong>Project brief:</strong> Developed a platform to convert philosophical texts and movie scripts into a musical composition based on the emotions present in the work. The goal is to have a more digestable way of interacting with these texts, seeing and hearing a summary of these works within a short period of time.</p>
+            <p><strong>My role:</strong> I developed the entirety of this system, writing python scripts for preprocessing and javascript for the music and graphics</p>
+            <p><strong>Brief intro to your audience:</strong> This project was put on public display at Harvard's Science and Engineering Complex for a conference on Data Visualization. The goal was to create innovative ways of visualizing big data.</p>
+            <p><strong>Your approach to the problem space:</strong> This project went through multiple stages of consumer testing, where the audience had to rate how well they were understanding the data being presented to them. This allowed for an iterative design where processing, graphics, and music were changed multiple times. For example, the graphics started out much simpler and didn't really paint an image of what was going on in the text, but this design element was improved upon after feedback.</p>
+            <p><strong>Constraints or obstacles:</strong> A major constraint was working with the pre-existing sentiment analysis methods to get accurate results. Much testing was done to figure out whether the percentage of emotions represented on the screen accurately corresponded to the underlying themes of the plot or philosophy.</p>
+            <p><strong>Reflections:</strong> In hindsight, I could've come up with a more quantitative way to display the sentiment analysis data, but the final product was well-received and represents a unique collaboration between technology and art</p>
         </div>
-        <div class="image-section">
-            <img src="path-to-your-project1-image.jpg" alt="Gaming Community Platform Project">
+    </section>
+    <section class="container">
+        <div class="text-section">
+            <p>This is the first iteration of the application. The graphics are very simple, but the density of the different colored circles represents the frequency of the different emotions in the text (red is anger, blue is sadness, etc.) </p>
+        </div>
+        <div class ="image-section">
+            <img src="dao1.png">
+        </div>
+    </section>
+    <section class="container">
+        <div class ="image-section">
+            <img src="dao2.png">
+        </div>
+        <div class="text-section">
+            <p>This is the final iteration of the design</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="text-section">
+            <a href="https://maxballison.github.io/Dao/">Here's the final site</a>
         </div>
     </section>
 
     <!-- Project 2 -->
     <section class="container">
         <div class="text-section">
-            <h2>Project 2: eSports Tournament Organizer</h2>
-            <p><strong>Project brief:</strong> Created an eSports tournament organizing tool to streamline event management. This tool aligns with Riot's focus on eSports and competitive gaming.</p>
-            <p><strong>The team and your role:</strong> Worked in a cross-functional team, including eSports experts. My role was UX/UI designer, ensuring the tool was intuitive and met the needs of tournament organizers.</p>
-            <p><strong>Brief intro to your customers and their needs:</strong> Targeted at eSports organizers and participants, the tool needed to handle complex scheduling and live updates efficiently.</p>
-            <p><strong>Your approach to the problem space:</strong> Emphasized user-centric design, integrating features like real-time bracket updates and participant communication channels.</p>
-            <p><strong>Example(s) of iteration based on feedback:</strong> Feedback on the initial beta highlighted the need for enhanced mobile functionality, leading to a significant redesign for mobile-first use.</p>
-            <p><strong>Constraints or obstacles:</strong> Balancing the depth of features with ease of use was challenging, requiring several iterations to get right.</p>
-            <p><strong>Reflections:</strong> Looking back, more thorough competitor analysis would have provided valuable insights into feature prioritization.</p>
-        </div>
-        <div class="image-section">
-            <img src="path-to-your-project2-image.jpg" alt="eSports Tournament Organizer Project">
+            <h2>Project 2: Sourcing software (Limited info - NDA)</h2>
+            <p><strong>Project brief:</strong> Hired as an independent contractor at a multi-million dollar consulting firm to build software that streamlines their sourcing process. Created software that helps gather and organize the company's data</p>
+            <p><strong>My role:</strong> Worked as the software lead alongside the sourcing employees to implement their ideas with code</p>
+            <p><strong>Example(s) of iteration based on feedback:</strong> This tool started as a simple script that the sourcing employees could run, but initial feedback pushed me to implement a GUI so that future employees could easily understand and interact with the system that was built</p>
+            <p><strong>Constraints or obstacles:</strong> Dealing with hundreds of thousands of data points was something that I had little to no experience with, so the modification of this data was an initial obstacle</p>
         </div>
     </section>
 </main>
