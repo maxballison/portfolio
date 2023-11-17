@@ -1,0 +1,16 @@
+{
+	"/": [
+		"src/routes/+page.ts"
+	],
+	"/about": [],
+	"/blog": [
+		"src/routes/blog/+page.ts"
+	],
+	"/blog/[slug]": [
+		"src/routes/blog/[slug]/+page.ts"
+	],
+	"/privacy-policy": [],
+	"/projects": [],
+	"/provacy-policy": [],
+	"/riot": []
+}
