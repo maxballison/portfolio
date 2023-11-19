@@ -3,7 +3,7 @@ const projects = [
 		title: 'Dao',
 		technologies: ['python', 'p5js', 'NRCLex', 'Tonejs'],
 		description:
-			'Dao is a data and music visualization of popular books and old philosophical Chinese texts. It uses a python sentiment analysis algorithm analyze the emotions present in a text and live draw pictures/create music based on the emotions in each section of the text',
+			'Dao is a data and music visualization of popular books/films and old philosophical Chinese texts. It uses a python sentiment analysis algorithm analyze the emotions present in a text and live draw pictures/create music based on the emotions in each section of the text',
 		url: 'https://maxballison.github.io/Dao/'
 	},
 	{
