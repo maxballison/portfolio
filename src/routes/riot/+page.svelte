@@ -82,9 +82,9 @@
         <div class="text-section">
             <h2>Project 2: Sourcing software (Limited info - NDA)</h2>
             <p><strong>Project brief:</strong> Hired as an independent contractor at a multi-million dollar consulting firm to build software that streamlines their sourcing process. Created software that helps gather and organize the company's data</p>
-            <p><strong>My role:</strong> Worked as the software lead alongside the sourcing employees to implement their ideas with code</p>
-            <p><strong>Example(s) of iteration based on feedback:</strong> This tool started as a simple script that the sourcing employees could run, but initial feedback pushed me to implement a GUI so that future employees could easily understand and interact with the system that was built</p>
-            <p><strong>Constraints or obstacles:</strong> Dealing with hundreds of thousands of data points was something that I had little to no experience with, so the modification of this data was an initial obstacle</p>
+            <p><strong>My role:</strong> Worked as the software lead alongside the sourcing employees to implement their ideas with code. Predominantly used Python with Selenium to write a package that significantly optimizes their search for and reaching out to clientele.</p>
+            <p><strong>Example(s) of iteration based on feedback:</strong> This tool started as a simple script that the sourcing employees could run, but feedback over multiple months pushed me to implement a GUI so that future employees could easily understand and interact with the system that was built. The goal of this project was longevity and consistency for this process as the company grows, so many of the changes reflected a desire for a more long-lasting piece of software that is user-friendly</p>
+            <p><strong>Constraints or obstacles:</strong> Dealing with hundreds of thousands of data points was something that I had little to no experience with, so the modification and performing of tests on this data was an initial obstacle. There were many others present in the company who had dealt with such data, though, so their experience was a major help when trying to implement the database systems. The software is complete, although is this still an ongoing project as I'm still working with the company during sourcing season to make sure everything runs smoothly.</p>
         </div>
     </section>
 </main>
