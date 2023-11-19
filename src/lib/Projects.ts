@@ -8,7 +8,7 @@ const projects = [
 	},
 	{
 		title: 'Notes on Love',
-		technologies: ['Svelte', 'python', 'p5js', 'gpt4'],
+		technologies: ['python', 'p5js', 'gpt4'],
 		description:
 			"Notes on Love is an application meant to categorize Harvard/MIT students' perspectives on Love. It uses a database of hundreds of love letters that a small team collected. I run each letter through an algorithm that uses gpt4 give the letter values for originality and positivity, and place the letter on a graph",
 		url: 'https://maxballison.github.io/love-notes/'
