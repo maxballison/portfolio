@@ -9,6 +9,7 @@
 	"/blog/[slug]": [
 		"src/routes/blog/[slug]/+page.ts"
 	],
+	"/duolingo": [],
 	"/privacy-policy": [],
 	"/projects": [],
 	"/provacy-policy": [],
