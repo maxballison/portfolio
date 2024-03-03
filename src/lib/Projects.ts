@@ -1,5 +1,11 @@
 const projects = [
 	{
+		title: '3D Cellular Automata',
+		technologies: ['C++', 'OpenGL'],
+		description: "A three-dimensional cellular automata built from scratch using OpenGL",
+		url: 'https://youtu.be/PnwLUILcYH0'
+	},
+	{
 		title: 'Dao',
 		technologies: ['python', 'p5js', 'NRCLex', 'Tonejs'],
 		description:
@@ -12,13 +18,8 @@ const projects = [
 		description:
 			"Notes on Love is an application meant to categorize Harvard/MIT students' perspectives on Love. It uses a database of hundreds of love letters collected by a small team. I run each letter through an algorithm that uses gpt4 to give the letter values for originality and positivity, and place the letter on a graph",
 		url: 'https://maxballison.github.io/love-notes/'
-	},
-	{
-		title: '3D Cellular Automata',
-		technologies: ['C++', 'OpenGL'],
-		description: "A three-dimensional cellular automata simulation using OpenGL",
-		url: 'https://github.com/maxballison/CS175Final'
-	},
+	}
+	
 	// {
 	// 	title: 'Chippy',
 	// 	technologies: ['Arduino', 'Cirucuits', 'Ableton'],
