@@ -12,28 +12,38 @@ export function ProjectsSection() {
           windowId="projects"
           statusFields={[
             `${projects.length} object(s)`,
-            `${liveCount} live`,
-            "Placeholder entries",
+            `${liveCount} playable in browser`,
           ]}
         >
           <div className="grid gap-4 sm:grid-cols-2">
             {projects.map((project) => (
               <fieldset key={project.id}>
-                <legend>{project.name}</legend>
+                <legend>{project.title}</legend>
                 <p className="text-[11px] leading-relaxed">{project.description}</p>
-                <div className="mt-3 flex items-center justify-between gap-2">
-                  <span className="text-[11px]">
-                    Status: <strong>{project.status}</strong>
-                    {" | "}
-                    {project.stack.join(", ")}
+                <p className="mt-2 text-[11px]">
+                  <span className="inline-flex items-center gap-1.5">
+                    <span
+                      className={`led ${project.status === "live" ? "led-on" : ""}`}
+                      aria-hidden="true"
+                    />
+                    {project.status}
                   </span>
-                  {project.href && (
-                    <a href={project.href}>
-                      <button type="button" tabIndex={-1}>
+                  {" | "}
+                  {project.stack.join(", ")}
+                </p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {project.liveHref && (
+                    <a href={project.liveHref} target="_blank" rel="noreferrer">
+                      <button type="button" tabIndex={-1} className="default">
                         Open
                       </button>
                     </a>
                   )}
+                  <a href={project.repoHref} target="_blank" rel="noreferrer">
+                    <button type="button" tabIndex={-1}>
+                      Source
+                    </button>
+                  </a>
                 </div>
               </fieldset>
             ))}

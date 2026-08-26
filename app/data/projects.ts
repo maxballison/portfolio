@@ -1,47 +1,68 @@
-// PLACEHOLDER PROJECTS - swap in real work when ready.
 export type Project = {
   id: string;
   name: string;
+  /** Display title; the repo name is shown separately as the source link. */
+  title: string;
   description: string;
   stack: string[];
-  status: "live" | "archived";
-  href?: string;
+  status: "live" | "in progress" | "source only";
+  /** Playable/viewable build. Omit when there is nothing to run in a browser. */
+  liveHref?: string;
+  repoHref: string;
 };
 
 export const projects: Project[] = [
   {
-    id: "signal-cache",
-    name: "signal-cache",
+    id: "wastema",
+    name: "WasteMA",
+    title: "Waste & Equity in Massachusetts",
     description:
-      "In-memory caching layer with pluggable eviction strategies and a tiny observability hook surface.",
-    stack: ["TypeScript", "Node"],
+      "Interactive map of all 351 Massachusetts municipalities, showing where curbside trash and recycling coverage stops and how those gaps line up with income, property wealth, and race.",
+    stack: ["React", "Vite", "D3"],
     status: "live",
-    href: "https://github.com/", // placeholder link
+    liveHref: "https://maxballison.github.io/WasteMA/",
+    repoHref: "https://github.com/maxballison/WasteMA",
   },
   {
-    id: "plotdeck",
-    name: "plotdeck",
+    id: "dao",
+    name: "Dao",
+    title: "Dao",
     description:
-      "CLI that turns CSV time-series into terminal sparkline dashboards. Built to watch long jobs without a browser.",
-    stack: ["Rust"],
+      "Turns the emotional arc of a text into a painting and a piece of music at the same time. Each book is split into sections scored for emotion; the dominant feeling picks the chord while particles paint a flow field in step with the audio clock.",
+    stack: ["p5.js", "Tone.js", "Python"],
     status: "live",
-    href: "https://github.com/", // placeholder link
+    liveHref: "https://maxballison.github.io/Dao/",
+    repoHref: "https://github.com/maxballison/Dao",
   },
   {
-    id: "loop-station",
-    name: "loop-station",
+    id: "self-driving",
+    name: "self_driving",
+    title: "Self Driving",
     description:
-      "Browser loop pedal: record, overdub, and quantize layers with the Web Audio API. Where the music habit and the code habit overlap.",
-    stack: ["React", "Web Audio"],
-    status: "live",
-    href: "https://github.com/", // placeholder link
+      "Puzzle game where you program the car instead of steering it. Write code in an in-game editor to route a self-driving taxi through each level and get its passengers where they are going.",
+    stack: ["Godot", "GDScript"],
+    status: "source only",
+    repoHref: "https://github.com/maxballison/self_driving",
   },
   {
-    id: "shelfmark",
-    name: "shelfmark",
+    id: "cs175final",
+    name: "CS175Final",
+    title: "Game of Life in 3D",
     description:
-      "Self-hosted reading tracker with an import pipeline for library checkout history.",
-    stack: ["Python", "SQLite"],
-    status: "archived",
+      "Conway's Game of Life rebuilt in three dimensions, where cells live and die in a voxel grid instead of on a flat board. Currently being ported to WebGL so it can run in the browser.",
+    stack: ["C++", "GLSL", "OpenGL"],
+    status: "in progress",
+    repoHref: "https://github.com/maxballison/CS175Final",
+  },
+  {
+    id: "love-notes",
+    name: "love-notes",
+    title: "Love Notes",
+    description:
+      "Hand-drawn envelopes open and type out love notes, some written by people and some by language models, each scored for how positive and how original it is.",
+    stack: ["p5.js"],
+    status: "live",
+    liveHref: "https://maxballison.github.io/love-notes/",
+    repoHref: "https://github.com/maxballison/love-notes",
   },
 ];
