@@ -49,9 +49,10 @@ export const projects: Project[] = [
     name: "CS175Final",
     title: "Game of Life in 3D",
     description:
-      "Conway's Game of Life rebuilt in three dimensions, where cells live and die in a voxel grid instead of on a flat board. Currently being ported to WebGL so it can run in the browser.",
-    stack: ["C++", "GLSL", "OpenGL"],
-    status: "in progress",
+      "Conway's Game of Life rebuilt in three dimensions, where cells live and die in a voxel grid instead of on a flat board. Originally written in C++ and OpenGL, now ported to WebGL so it runs in the browser.",
+    stack: ["WebGL", "C++", "GLSL"],
+    status: "live",
+    liveHref: "https://maxballison.github.io/CS175Final/",
     repoHref: "https://github.com/maxballison/CS175Final",
   },
   {
