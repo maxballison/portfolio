@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { usePlayer } from "@/app/components/player/PlayerProvider";
+import { asset } from "@/app/lib/asset";
 
 export type MediaItem =
   | { kind: "image"; src: string; alt: string }
@@ -32,7 +33,7 @@ export function MediaGrid({ items }: { items: MediaItem[] }) {
           <div className="sunken-panel bg-black p-1">
             {item.kind === "video" ? (
               <video
-                src={item.src}
+                src={asset(item.src)}
                 controls
                 preload="metadata"
                 playsInline
@@ -42,7 +43,7 @@ export function MediaGrid({ items }: { items: MediaItem[] }) {
               />
             ) : (
               <Image
-                src={item.src}
+                src={asset(item.src)}
                 alt={item.alt}
                 width={800}
                 height={600}

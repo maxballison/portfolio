@@ -5,6 +5,7 @@ import { useReducedMotion } from "motion/react";
 import { brainScans } from "@/app/data/brains";
 import { WindowFrame } from "@/app/components/WindowFrame";
 import { BrainVolumeWindow } from "@/app/components/BrainVolumeWindow";
+import { asset } from "@/app/lib/asset";
 
 /**
  * Flipbook player for one MRI sequence: a single <img> whose src advances
@@ -20,7 +21,7 @@ function ScanLoop({ frames, fps }: { frames: string[]; fps: number }) {
   useEffect(() => {
     frames.forEach((src) => {
       const img = new window.Image();
-      img.src = src;
+      img.src = asset(src);
     });
   }, [frames]);
 
@@ -36,7 +37,7 @@ function ScanLoop({ frames, fps }: { frames: string[]; fps: number }) {
     <div className="relative aspect-square w-full bg-black">
       {/* eslint-disable-next-line @next/next/no-img-element -- flipbook swaps src every frame; next/image adds no value here */}
       <img
-        src={frames[index]}
+        src={asset(frames[index])}
         alt="MRI scan of my brain, animated slice sequence"
         className="absolute inset-0 h-full w-full object-contain"
         draggable={false}

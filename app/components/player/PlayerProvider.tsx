@@ -11,6 +11,7 @@ import {
   type ReactNode,
 } from "react";
 import { tracks } from "@/app/data/tracks";
+import { asset } from "@/app/lib/asset";
 
 type PlayerState = {
   trackIndex: number;
@@ -70,7 +71,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     if (audioRef.current) return audioRef.current;
     const audio = new Audio();
     audio.preload = "metadata";
-    audio.src = tracks[0].src;
+    audio.src = asset(tracks[0].src);
     audio.volume = 0.8;
 
     audio.addEventListener("timeupdate", () => {
@@ -82,7 +83,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     audio.addEventListener("ended", () => {
       // Auto-advance through the playlist, wrapping at the end.
       const nextIndex = (trackIndexRef.current + 1) % tracks.length;
-      audio.src = tracks[nextIndex].src;
+      audio.src = asset(tracks[nextIndex].src);
       setState((s) => ({ ...s, trackIndex: nextIndex, currentTime: 0 }));
       void audio.play().catch(() => {
         setState((s) => ({ ...s, isPlaying: false }));
@@ -127,7 +128,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       const audio = getAudio();
       ensureGraph(audio);
       if (index !== undefined && index !== trackIndexRef.current) {
-        audio.src = tracks[index].src;
+        audio.src = asset(tracks[index].src);
         setState((s) => ({ ...s, trackIndex: index, currentTime: 0, duration: 0 }));
       }
       setState((s) => ({ ...s, hasStarted: true }));

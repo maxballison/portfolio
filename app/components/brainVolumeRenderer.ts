@@ -373,8 +373,8 @@ function cross(a: number[], b: number[]): number[] {
  */
 export async function loadVolume(
   manifest: VolumeManifest,
-  onProgress?: (frac: number) => void,
-  url: string = manifest.atlas
+  url: string,
+  onProgress?: (frac: number) => void
 ): Promise<Uint8Array> {
   const res = await fetch(url);
   if (!res.ok || !res.body) throw new Error(`atlas fetch failed: ${res.status}`);

@@ -14,6 +14,7 @@ import {
   loadVolume,
   type VolumeManifest,
 } from "@/app/components/brainVolumeRenderer";
+import { asset } from "@/app/lib/asset";
 
 const MANIFEST_URL = "/brain/volume/brain2-volume.json";
 
@@ -85,13 +86,13 @@ export function BrainVolume() {
       try {
         const canvas = canvasRef.current;
         if (!canvas) return;
-        const manifest: VolumeManifest = await (await fetch(MANIFEST_URL)).json();
+        const manifest: VolumeManifest = await (await fetch(asset(MANIFEST_URL))).json();
         // main atlas drives the progress bar; the mask atlas is ~20x smaller
         const [voxels, maskVoxels] = await Promise.all([
-          loadVolume(manifest, (f) => {
+          loadVolume(manifest, asset(manifest.atlas), (f) => {
             if (!cancelled) setProgress(f);
           }),
-          loadVolume(manifest, undefined, manifest.maskAtlas),
+          loadVolume(manifest, asset(manifest.maskAtlas)),
         ]);
         if (cancelled) return;
         const renderer = new VolumeRenderer(canvas);
