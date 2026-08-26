@@ -1,0 +1,21 @@
+{
+  "width": 192,
+  "height": 256,
+  "depth": 160,
+  "cols": 15,
+  "rows": 11,
+  "atlas": "/brain/volume/brain2-atlas.png",
+  "maskAtlas": "/brain/volume/brain2-mask-atlas.png",
+  "spacing": [
+    1,
+    1,
+    1
+  ],
+  "window": {
+    "low": 30,
+    "high": 145
+  },
+  "interpolatedSlices": [
+    34
+  ]
+}

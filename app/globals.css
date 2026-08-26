@@ -1,26 +1,257 @@
 @import "tailwindcss";
 
+/* ============================================================
+   THEME: Windows-9x light theme. 98.css provides the chrome
+   (windows, title bars, buttons, inputs, scrollbars, MS Sans).
+   Custom layer: teal desktop, Winamp-style LCD insets, taskbar,
+   desktop icons.
+   ============================================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Desktop */
+  --desktop: #008080;          /* the teal */
+  --silver: #c0c0c0;
+
+  /* LCD (Winamp display) - intentionally dark inside light chrome */
+  --lcd: #131a30;
+  --lcd-deep: #0d1222;
+  --lcd-text: #a3b4ea;
+  --lcd-text-dim: #55628f;
+  --lcd-grid: #1b2342;
+
+  /* Accents */
+  --amber: #e0862f;            /* current-track highlight inside LCD */
+  --spec-lo: #4fae62;          /* spectrum bottom segments */
+  --spec-hi: #d9c04a;          /* spectrum top segments */
+  --titlebar-navy: #000080;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-desktop: var(--desktop);
+  --color-silver: var(--silver);
+  --color-lcd: var(--lcd);
+  --color-lcd-deep: var(--lcd-deep);
+  --color-lcd-text: var(--lcd-text);
+  --color-lcd-text-dim: var(--lcd-text-dim);
+  --color-lcd-grid: var(--lcd-grid);
+  --color-amber: var(--amber);
+  --font-pixel: var(--font-vt323);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+/* Keep anchored sections clear of the viewport edge */
+section[id],
+div[id] {
+  scroll-margin-top: 1.5rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--desktop);
+  /* Subtle dither texture, like a cheap CRT showing teal */
+  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+/* 98.css sets 11px MS Sans on body; give long-form copy a touch more air */
+.window-body p {
+  line-height: 1.5;
+}
+
+/* ============================================================
+   LCD - the one deliberately dark surface (it is a display)
+   ============================================================ */
+.bezel-lcd {
+  background: var(--lcd);
+  box-shadow:
+    inset -1px -1px #fff,
+    inset 1px 1px grey,
+    inset -2px -2px #dfdfdf,
+    inset 2px 2px #0a0a0a;
+  padding: 2px;
+}
+
+.lcd-scanlines {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.22) 2px,
+    rgba(0, 0, 0, 0.22) 3px
+  );
+}
+
+@keyframes lcd-marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.lcd-marquee {
+  animation: lcd-marquee 9s linear infinite;
+}
+
+/* ============================================================
+   Taskbar
+   ============================================================ */
+.taskbar {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  /* Windows' z-indexes grow with every interaction (windowRegistry counter);
+     the taskbar must always stay on top */
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 36px;
+  padding: 3px 4px;
+  background: var(--silver);
+  box-shadow:
+    inset 0 1px 0 #dfdfdf,
+    inset 0 2px 0 #fff;
+  border-top: 1px solid #fff;
+}
+.taskbar-well {
+  box-shadow:
+    inset -1px -1px #fff,
+    inset 1px 1px grey;
+  padding: 2px 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+/* Track readout in the taskbar matches the player's LCD */
+.taskbar-well-lcd {
+  background: var(--lcd);
+  box-shadow:
+    inset -1px -1px #fff,
+    inset 1px 1px grey,
+    inset 2px 2px 3px rgba(0, 0, 0, 0.7);
+}
+.taskbar-divider {
+  width: 1px;
+  align-self: stretch;
+  margin: 2px 2px;
+  box-shadow: inset -1px 0 #fff, inset 1px 0 grey;
+}
+
+/* Menu bar (File/Edit style nav) */
+.menu-bar {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1px 0;
+}
+.menu-bar a {
+  padding: 3px 8px;
+  color: #000;
+  text-decoration: none;
+}
+.menu-bar a:hover,
+.menu-bar a:focus-visible {
+  background: var(--titlebar-navy);
+  color: #fff;
+  outline: none;
+}
+.menu-bar a u {
+  text-decoration: underline;
+}
+
+/* Keep transport button icons vertically centered.
+   98.css draws button text via text-shadow with color:#0000 (transparent),
+   which blanks out SVG icons using fill="currentColor". Restore real color
+   on icon-carrying buttons and shift the icon on press instead. */
+button.transport {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 26px;
+  color: #222;
+  text-shadow: none;
+}
+button.transport:not(:disabled):active svg {
+  transform: translate(1px, 1px);
+}
+
+/* Latched (toggled-on) button state, like Winamp's PL toggle.
+   Mirrors the 98.css :active pressed bevel; unlayered to win the cascade. */
+button.pl-active {
+  box-shadow:
+    inset -1px -1px #fff,
+    inset 1px 1px #0a0a0a,
+    inset -2px -2px #dfdfdf,
+    inset 2px 2px grey;
+  background: #d6d6d6;
+}
+
+/* Win98 "default button" emphasis ring (this 98.css version lacks .default) */
+button.default {
+  box-shadow:
+    inset -1px -1px #0a0a0a,
+    inset 1px 1px #fff,
+    inset -2px -2px grey,
+    inset 2px 2px #dfdfdf,
+    0 0 0 1px #0a0a0a;
+}
+button.default:not(:disabled):active {
+  box-shadow:
+    inset -1px -1px #fff,
+    inset 1px 1px #0a0a0a,
+    inset -2px -2px #dfdfdf,
+    inset 2px 2px grey,
+    0 0 0 1px #0a0a0a;
+}
+
+/* Playlist rows are <button>s inside the LCD; strip the 98.css button
+   chrome (silver bevel, transparent text) entirely for these.
+   Unlayered so they beat the 98.css reset. */
+button.lcd-row {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  min-width: 0;
+  padding: 6px 12px;
+  text-align: left;
+  color: var(--lcd-text);
+  text-shadow: none;
+}
+button.lcd-row:hover {
+  color: #fff;
+}
+button.lcd-row:not(:disabled):active {
+  background: transparent;
+  box-shadow: none;
+}
+button.lcd-row-current,
+button.lcd-row-current:hover {
+  color: var(--amber);
+}
+
+/* Draggable window title bars (fine pointers only; drag logic in WindowFrame) */
+@media (pointer: fine) {
+  .window > .title-bar {
+    cursor: move;
+    touch-action: none;
+  }
+}
+
+/* Focus feedback: blink the title bar when a window is raised via the menu */
+@keyframes title-bar-flash {
+  0%, 40%, 80% { filter: brightness(1.45); }
+  20%, 60%, 100% { filter: none; }
+}
+.title-bar-flash {
+  animation: title-bar-flash 0.6s steps(1) 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .title-bar-flash { animation: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .lcd-marquee { animation: none; }
 }

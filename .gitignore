@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# asset masters live in Google Drive; public/ holds web derivatives
+/assets/
