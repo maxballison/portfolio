@@ -1,8 +1,11 @@
 import type { NextConfig } from "next";
 
-// Set by the GitHub Pages workflow (project sites are served from /<repo>/).
-// Empty locally and for root-domain deploys.
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+// Set by the GitHub Pages workflow. Empty for local dev and for the
+// maxballison.com custom domain (served from the root); "/portfolio" when
+// served from the github.io project-site subpath.
+// Next rejects a bare "/" basePath, so normalize it away.
+const raw = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const basePath = raw.replace(/\/+$/, "");
 
 const nextConfig: NextConfig = {
   // Static HTML export: GitHub Pages serves files, it does not run a server.
